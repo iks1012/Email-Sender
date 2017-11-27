@@ -9,17 +9,17 @@ from email import encoders
 
 # Email You are using
 
-user = User()
+# user = User()
 
-sendingEmail = "isethi@cs.stonybrook.edu"
-password = User.getPass()
+sendingEmail = "EMAIL_YOU_WISH_TO_SEND_BY" # Switch this with the email you want (Should be a non university email)
+password = "PASSWORD" # Switch this with the Password you want.
 
-hwNum = 5
+hwNum = 6 # number of the homework, critical in the naming of the folder
 sendingHW = True
 
-TAFolderEXT = "G:\\Work Related\\Education\\College\\Sophomore Year\\01 - Fall\\CSE 214 TA\\"
-studentData = "Students.txt"
-HWFolder = "HW" + str(hwNum) + " - R06\\"
+TAFolderEXT = "C:\\path\\of\\the" # This should lead upto the next file below and the folder filled with excel sheets
+studentData = "Students.txt" # Actual name .txt file that has all the studentData (See format in README and SAMPLETXTFILE
+HWFolder = "HW" + str(hwNum) + " - R06\\" # Name the folder of spreadsheets like seen on left
 
 hwPath = TAFolderEXT + HWFolder
 fileNames = os.listdir(hwPath)
@@ -44,8 +44,8 @@ for i in range(len(students) - 1):
 
     if (tempEmail[:tempEmail.index(".")] in tempFileName.lower()) or (
         tempEmail[tempEmail.index(".") + 1:tempEmail.index("@")] in tempFileName.lower()):
-        msg = "This Script actually works really well :O \n" \
-                "Attached is the homework grade sheets for homework " + str(hwNum) + ".\n" \
+        msg = "Hey "+ tempEmail[:tempEmail.index(".")]+",  \n" \
+                "Attached is the homework grade sheet for homework " + str(hwNum) + ".\n" \
                 "If there any discrepancies about the grade please contact the grading TA.\n" \
                 "If there are any immediate issues please let me know.\n"
         if sendingHW:
